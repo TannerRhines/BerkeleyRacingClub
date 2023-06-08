@@ -5,13 +5,68 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="/assets/styles.css">
+
 </head>
+<header class = "has-text-centered">
+    <h1 class="py-6 is-size-3" style="font-family: 'Cinzel', serif;">Berkeley Racing Club</h1>
+</header>
+
 <body>
     
+    <section class="container">
+        <section class="py-6 has-text-centered">
+            <!--This button should trigger generate stats functions when clicked-->
+            <button class="button" id="CreateFighers">Create!</button>
+            <button class="button" id="FightersBattle">Battle!</button>
+            <!--Clears the combatants when clicks. I think this button can be removed upon reflection.-->
+            <button class="button" id="ResetBattle">Reset!</button>
+        </section>
 
+        <section class="content py-6 columns is-centered has-text-centered">
+            
+            <div class="column is-one-quarter">
+              <div>Column 1</div>
+              <!--This ID or one similiar should generate a function that displays the stats of the USA horse by amending the html via Javascript-->
+              <div id="GenerateUsaStats">USA horse</div>
+            </div>
+            
+            <div class="column is-one-quarter">
+              <div>Column 2</div>
+            </div>
+            
+            <div class="column is-one-quarter">
+              <div>Column 3</div>
+            </div>
+            
+            <div class="column is-one-quarter">
+              <div>column 4</div>
+              <!--This ID or one similiar should generate a function that displays the stats of the French horse by amending the html via Javascript-->
+              <div id="GenerateFranceStats">France horse</div>
+            </div>
+        </section>
 
+        <section class="py-6">
+            <div class ="has-text-centered">
+                <!--stores previous battles. Implemented to fulfill the use storestorage requirement-->
+                <button class="button" id="previousfights">list of previous fights</button>
+            </div>
+        
+            <div class ="has-text-centered">
+                <button class="button" id="clearstorage">clear storage:</button>
+            </div>
+        </section>
 
+    </section>
+
+   
+
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="/assets/script.js"></script>
 </body>
 </html>
