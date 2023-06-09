@@ -10,21 +10,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/styles.css">
-
+   
 </head>
 <header class = "has-text-centered">
     <h1 class="py-6 is-size-3" style="font-family: 'Cinzel', serif;">Berkeley Racing Club</h1>
 </header>
 
 <body>
-    
     <section class="container">
         <section class="py-6 has-text-centered">
             <!--This button should trigger generate stats functions when clicked-->
-            <button class="button" id="CreateFighters">Create!</button>
-            <button class="button" id="FightersBattle">Battle!</button>
+
+            
+
+            <button class="button is-success is-focused" id="CreateFighers">Create!</button>
+            <button class="button is-danger is-focused" id="FightersBattle">Battle!</button>
+
             <!--Clears the combatants when clicks. I think this button can be removed upon reflection.-->
-            <button class="button" id="ResetBattle">Reset!</button>
+            <button class="button is-link is-focused" id="ResetBattle">Reset!</button>
         </section>
 
         <section class="content py-6 columns is-centered has-text-centered">
@@ -53,11 +56,11 @@
         <section class="py-6">
             <div class ="has-text-centered">
                 <!--stores previous battles. Implemented to fulfill the use storestorage requirement-->
-                <button class="button" id="previousfights">list of previous fights</button>
+                <button class="button is-link is-focused" id="previousfights">list of previous fights</button>
             </div>
         
             <div class ="has-text-centered">
-                <button class="button" id="clearstorage">clear storage:</button>
+                <button class="button is-link is-focused" id="clearstorage">clear storage:</button>
             </div>
         </section>
 
@@ -67,6 +70,8 @@
 
     
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
     <script src="./assets/script.js"></script>
+
 </body>
 </html>
