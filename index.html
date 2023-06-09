@@ -9,8 +9,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <link rel="stylesheet" href="assets/styles.css">
-
+    <link rel="stylesheet" href="./assets/styles.css">
+   
 </head>
 <header class = "has-text-centered">
     <h1 class="py-6 is-size-3" style="font-family: 'Cinzel', serif;">Berkeley Racing Club</h1>
@@ -20,8 +20,12 @@
     <section class="container">
         <section class="py-6 has-text-centered">
             <!--This button should trigger generate stats functions when clicked-->
+
+            
+
             <button class="button is-success is-focused" id="CreateFighers">Create!</button>
             <button class="button is-danger is-focused" id="FightersBattle">Battle!</button>
+
             <!--Clears the combatants when clicks. I think this button can be removed upon reflection.-->
             <button class="button is-link is-focused" id="ResetBattle">Reset!</button>
         </section>
@@ -31,7 +35,7 @@
             <div class="column is-one-quarter">
               <div>Column 1</div>
               <!--This ID or one similiar should generate a function that displays the stats of the USA horse by amending the html via Javascript-->
-              <div id="GenerateUsaStats">USA horse</div>
+              <div class="GenerateStats">Horse number 1</div>
             </div>
             
             <div class="column is-one-quarter">
@@ -45,7 +49,7 @@
             <div class="column is-one-quarter">
               <div>column 4</div>
               <!--This ID or one similiar should generate a function that displays the stats of the French horse by amending the html via Javascript-->
-              <div id="GenerateFranceStats">France horse</div>
+              <div class="GenerateStats">Horse number 2</div>
             </div>
         </section>
 
@@ -66,6 +70,8 @@
 
     
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="assets/script.js"></script>
+
+    <script src="./assets/script.js"></script>
+
 </body>
 </html>
