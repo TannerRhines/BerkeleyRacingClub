@@ -13,7 +13,7 @@
    
 </head>
 <header class = "has-text-centered">
-    <h1 class="py-6 is-size-3" style="font-family: 'Cinzel', serif;">Berkeley Racing Club</h1>
+    <h1 class="py-6 is-size-1 has-text-weight-bold is-underlined" style="font-family: 'Cinzel', serif;">Berkeley Racing Club</h1>
 </header>
 
 <body>
@@ -23,11 +23,11 @@
 
             
 
-            <button class="button is-success is-focused" id="CreateFighters">Create!</button>
-            <button class="button is-danger is-focused" id="FightersBattle">Battle!</button>
+            <button class=" mx-6 button is-large is-rounded is-success is-focused" id="CreateFighters">Create!</button>
+            <button class=" mx-6 button is-large is-rounded is-danger is-focused" id="FightersBattle">Battle!</button>
 
             <!--Clears the combatants when clicks. I think this button can be removed upon reflection.-->
-            <button class="button is-link is-focused" id="ResetBattle">Reset!</button>
+            <button class="mx-6 button is-large is-rounded is-link is-focused" id="ResetBattle">Reset!</button>
         </section>
 
         <section class="content py-6 columns is-centered has-text-centered">
@@ -35,7 +35,7 @@
             <div class="column is-one-quarter">
               <div>Column 1</div>
               <!--This ID or one similiar should generate a function that displays the stats of the USA horse by amending the html via Javascript-->
-              <div class="GenerateStats1">Horse number 1</div>
+              <div class="GenerateStats1 has-text-weight-bold" style="font-family: 'Cinzel', serif;">Horse number 1</div>
             </div>
             
             <div class="column is-one-quarter">
@@ -51,14 +51,14 @@
             <div class="column is-one-quarter">
               <div>column 4</div>
               <!--This ID or one similiar should generate a function that displays the stats of the French horse by amending the html via Javascript-->
-              <div class="GenerateStats2">Horse number 2</div>
+              <div class="GenerateStats2 has-text-weight-bold" style="font-family: 'Cinzel', serif;">Horse number 2</div>
             </div>
         </section>
 
         <section class="py-6">
-            <div class ="has-text-centered">
+            <div class = "py-3 has-text-centered">
                 <!--stores previous battles. Implemented to fulfill the use storestorage requirement-->
-                <button class="button is-link is-focused" id="previousfights">list of previous fights</button>
+                <button class="button is-link is-focused" id="previousfights">list of previous fights:</button>
             </div>
         
             <div class ="has-text-centered">
