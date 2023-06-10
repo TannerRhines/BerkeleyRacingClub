@@ -1,3 +1,16 @@
 h1{
     border-style: dotted;
 }
+
+/* was working on getting the animation for the fight button going*/
+/* 
+.grow {
+    transform: scale(1.5);
+    height: 500px;
+    width: 500px;
+}
+
+#image-1, #image-2 {
+    transition: height 2s width 2s;
+    transform: scale (1.0);
+} */
