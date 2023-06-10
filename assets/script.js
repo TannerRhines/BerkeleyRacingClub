@@ -123,7 +123,16 @@ console.log("ResetBattle Button clicked!");
 });
 
 $("#FightersBattle").on("click", function(event){
-    console.log("ResetBattle Button clicked!")  
+  console.log("ResetBattle Button clicked!")  
+  $('body').addClass('darken');
+  $('#image-1 img').addClass('battle1');
+  $('#image-2 img').addClass('battle2');
+  
+  setTimeout(function() {
+    $('body').removeClass('darken');
+    $('#image-1 img').removeClass('battle1');
+    $('#image-2 img').removeClass('battle2');
+  }, 2000);  // The duration of the animations in milliseconds
 });
 
 $("#previousfights").on("click", function(event){
