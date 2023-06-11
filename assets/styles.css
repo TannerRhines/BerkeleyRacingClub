@@ -51,7 +51,7 @@ body {
       transform: scale(1) rotate(0deg) translateX(0px);
     }
     12.5%, 37.5%, 62.5%, 87.5% {
-      transform: scale(1.5) rotate(-25deg) translateX(20px);
+      transform: scale(1.5) rotate(25deg) translateX(-20px);
     }
     25%, 75% {
       transform: scale(1) rotate(0deg) translateX(0px);

@@ -16,7 +16,9 @@ async function fetchRandomHorse(targetClass, horseName) {
       const randomIndex = Math.floor(Math.random() * data.length);
       const randomHorse = data[randomIndex];
   
-      const { age, course, distance } = randomHorse;
+      const { course, distance } = randomHorse;
+      let age = randomHorse.age;
+      age = ageConversion(age); 
       console.log('Age:', age);
       console.log('Course:', course);
       console.log('Distance:', distance);
@@ -26,9 +28,9 @@ async function fetchRandomHorse(targetClass, horseName) {
           <div>
             <div>
               <div>Name: ${horseName}</div>
-              <div>Age: ${age}</div>
+              <div id='age-result'>Age: ${age % 1 !== 0 ? age.toFixed(1) : Math.floor(age)}yo</div>
               <div>Home Course: ${course}</div>
-              <div>Even Length: ${distance}</div>
+              <div id='distance-result'>Event Length: ${distance}</div>
           </div>
         </h3>`;
   
@@ -37,7 +39,17 @@ async function fetchRandomHorse(targetClass, horseName) {
     } catch (error) {
       console.error(error);
     }
-  }
+  };
+
+  function ageConversion(ageString) {
+    let ageValue;
+    if (ageString.includes('+')) {
+        ageValue = parseFloat(ageString.replace('yo+', '')) + 0.5;
+    } else {
+        ageValue = parseFloat(ageString.replace('yo', ''));
+    }
+    return ageValue;
+}
 
 async function fetchRandomPerson() {
     try {
@@ -54,7 +66,7 @@ async function fetchRandomPerson() {
       console.error('Error:', error);
       throw error;
     }
-}
+};
 
 // fetchRandomPerson()
 //   .then(data => {
@@ -80,12 +92,18 @@ function attachImages () {
 
   image1.addClass('grow');
   image2.addClass('grow');
+
+  // I'm using the below method to flip image 2 horizontally. If we can upload ~10 images of the horses all facing the same way then when we flip image 2 it will look like they're facing off head to head
+
+  image2container[0].style.transform = 'scaleX(-1)';
 }
 
 attachImages();
 
 
+// Now need a function that will return the winner. Logic as follows:
 
+// take age, determine absolute value from 3.5, take distance, take determine absolute value from 1.25 miles, add numbers together, whichever horse has lowest number wins
 
 
 $("#clearstorage").on("click", function(event) {
@@ -95,25 +113,25 @@ console.log("Clearstorage Button clicked!");
 
 // click listener works with API, commenting out for now to save API calls
 
-//  $("#CreateFighters").on("click", function(event) {
-//   fetchRandomPerson()
-//     .then(name => {
-//       return fetchRandomHorse(".GenerateStats1", name);
-//     })
-//     .catch(error => {
-//       console.error('Error:', error);
-//     });
+ $("#CreateFighters").on("click", function(event) {
+  fetchRandomPerson()
+    .then(name => {
+      return fetchRandomHorse(".GenerateStats1", name);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
     
-//   fetchRandomPerson()
-//     .then(name => {
-//       return fetchRandomHorse(".GenerateStats2", name);
-//     })
-//     .catch(error => {
-//       console.error('Error:', error);
-//     });
+  fetchRandomPerson()
+    .then(name => {
+      return fetchRandomHorse(".GenerateStats2", name);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
     
-//   console.log("Createfighters Button clicked!"); 
-// });
+  console.log("Createfighters Button clicked!"); 
+});
 
 
 $("#ResetBattle").on("click", function(event){
