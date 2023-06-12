@@ -17,22 +17,27 @@ async function fetchRandomHorse(targetClass, horseName) {
       const randomHorse = data[randomIndex];
   
       const { course, distance } = randomHorse;
+      // age conversion function turns "age" into a number we can use to compare horses
       let age = randomHorse.age;
       age = ageConversion(age); 
+      let convertedDistance = distanceConversion(distance);
+
       console.log('Age:', age);
       console.log('Course:', course);
       console.log('Distance:', distance);
   
       var HorsestatsHTML = `
-        <h3>
-          <div>
-            <div>
-              <div>Name: ${horseName}</div>
-              <div id='age-result'>Age: ${age % 1 !== 0 ? age.toFixed(1) : Math.floor(age)}yo</div>
-              <div>Home Course: ${course}</div>
-              <div id='distance-result'>Event Length: ${distance}</div>
-          </div>
-        </h3>`;
+  <h3>
+    <div>
+      <div>
+        <div>Name: ${horseName}</div>
+        <div id='age-result'>Age: ${age % 1 !== 0 ? age.toFixed(1) : Math.floor(age)}yo</div>
+        <div>Home Course: ${course}</div>
+        <div id='distance-result'>Event Length: ${convertedDistance} miles</div>
+      </div>
+    </div>
+  </h3>`;
+
   
       $(targetClass).html(HorsestatsHTML);
   
@@ -40,6 +45,8 @@ async function fetchRandomHorse(targetClass, horseName) {
       console.error(error);
     }
   };
+
+  // converts age string into a number, removes the "yo" and "yo+", turns "yo+" into .5, so 3yo+ = 3.5
 
   function ageConversion(ageString) {
     let ageValue;
@@ -50,6 +57,29 @@ async function fetchRandomHorse(targetClass, horseName) {
     }
     return ageValue;
 }
+
+function distanceConversion(distanceString) {
+  const yardToMiles = 1 / 1760;
+  const furlongToMiles = 1 / 8;
+  let distanceInMiles;
+
+  // check for the various formats
+  if (distanceString.includes('furlong')) {
+    let furlongValue = parseFloat(distanceString.replace('furlongs', '').replace('furlong', ''));
+    distanceInMiles = furlongValue * furlongToMiles;
+  } else if (distanceString.includes('mile') && distanceString.includes('yard')) {
+    let [miles, yards] = distanceString.split(' ');
+    miles = parseFloat(miles.replace('mile', ''));
+    yards = parseFloat(yards.replace('yards', '')) * yardToMiles;
+    distanceInMiles = miles + yards;
+  } else if (distanceString.includes('mile')) {
+    distanceInMiles = parseFloat(distanceString.replace('miles', '').replace('mile', ''));
+  }
+
+  // rounding to the nearest hundredth
+  return Math.round(distanceInMiles * 100) / 100;
+}
+
 
 async function fetchRandomPerson() {
     try {
