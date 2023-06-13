@@ -1,6 +1,14 @@
 let horse1Data = {};
 let horse2Data = {};
-let winners =[];
+
+//conditional statement to check if winners array has anything if it does, adds it to the array if not, makes empty array
+
+let winners;
+if (localStorage.getItem("winners")){
+  winners= JSON.parse(localStorage.getItem("winners"))
+}else {
+  winners = [];
+}
 
 async function fetchRandomHorse(targetClass, horseName, horseData) {
     const url = 'https://horse-racing-usa.p.rapidapi.com/results?date=2021-03-18';
@@ -120,8 +128,8 @@ function horseBattle() {
     console.log("It's a tie!");
     $('#race-results').text("It's a tie!");
   }
-
-  localStorage.setItem("winner", winner);
+  winners.push(winner);
+  localStorage.setItem("winners", JSON.stringify(winners));
 }
 
 
@@ -256,6 +264,6 @@ $("#previousfights").on("click", function(event) {
   console.log("Previousfight button clicked!");
   for (var i = 0; i < winners.length; i++) {
     var winner = winners[i];
-    localStorage.setItem("winner" + i, winner);
+    localStorage.getItem("winner" + i, winner);
   }
 });
