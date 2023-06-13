@@ -34,44 +34,53 @@
             <button class="mx-6 button is-large is-rounded is-link is-focused" id="ResetBattle">Reset!</button>
         </section>
 
-        <section class="content py-6 columns is-centered has-text-centered">
-            
-            <div class="column is-one-quarter">
-              <div>Column 1</div>
-              <!--This ID or one similiar should generate a function that displays the stats of the USA horse by amending the html via Javascript-->
 
-
-              <div class="Horse-1 has-text-weight-bold" style="font-family: 'Cinzel', serif;">Horse number 1</div>
-
-            </div>
-            
-            <div class="column is-one-quarter">
-              <div>Column 2</div>
-              <div id="image-1"></div>
-            </div>
-            
-            <div class="column is-one-quarter">
-              <div>Column 3</div>
-              <div id="image-2"></div>
-            </div>
-            
-            <div class="column is-one-quarter">
-              <div>column 4</div>
-              <!--This ID or one similiar should generate a function that displays the stats of the French horse by amending the html via Javascript-->
-
-              <div class="Horse-2  has-text-weight-bold" style="font-family: 'Cinzel', serif;">Horse number 2</div>
-            </div>
-        </section>
-
-        <section class="py-6">
-            <div class = "py-3 has-text-centered">
-                <!--stores previous battles. Implemented to fulfill the use storestorage requirement-->
-                <button class="button is-link is-focused" id="previousfights">list of previous fights:</button>
-                <div id="displaywinners"></div>
-            </div>
-        
-            <div class ="has-text-centered">
-                <button class="button is-link is-focused" id="clearstorage">clear storage:</button>
+        <section class="section">
+            <div class="container">
+                <div class="columns is-centered">
+                    <div class="column is-one-quarter">
+                        <div class="card">
+                            <div class="card-content">
+                                <p class="title is-4">Column 1</p>
+                                <!--This ID or one similiar should generate a function that displays the stats of the USA horse by amending the html via Javascript-->
+                                <div id="GenerateStats1">Horse number 1</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-one-quarter">
+                        <div class="card">
+                            <div class="card-content">
+                                <p class="title is-4">Column 2</p>
+                                <div id="image-1"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-one-quarter">
+                        <div class="card">
+                            <div class="card-content">
+                                <p class="title is-4">Column 3</p>
+                                <div id="image-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-one-quarter">
+                        <div class="card">
+                            <div class="card-content">
+                                <p class="title is-4">Column 4</p>
+                                <!--This ID or one similiar should generate a function that displays the stats of the French horse by amending the html via Javascript-->
+                                <div id="GenerateStats2">Horse number 2</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <section class="py-6">
+                    <div class ="has-text-centered">
+                        <!--stores previous battles. Implemented to fulfill the use storestorage requirement-->
+                        <button class="button is-link is-focused" id="previousfights">list of previous fights</button>
+                    </div>
+                
+                    <div class ="has-text-centered">
+                        <button class="button is-link is-focused" id="clearstorage">clear storage:</button>
             </div>
         </section>
 
