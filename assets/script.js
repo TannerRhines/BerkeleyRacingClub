@@ -54,6 +54,7 @@ try {
 
     horseData.age = age;
     horseData.convertedDistance = convertedDistance;
+    horseData.name = horseName;
 };
 
   // converts age string into a number, removes the "yo" and "yo+", turns "yo+" into .5, so 3yo+ = 3.5
@@ -107,11 +108,11 @@ function horseBattle() {
   var raceValueHorse2 = Math.abs(horse2Data.age - 3.5) + Math.abs(horse2Data.convertedDistance - 1.25);
 
   if (raceValueHorse1 < raceValueHorse2) {
-    var winner = "Horse 1";
+    var winner = horse1Data.name;
     console.log("Horse 1 wins!");
     $('#race-results').text("Horse 1 wins!");
   } else if (raceValueHorse2 < raceValueHorse1) {
-    var winner = "Horse 2";
+    var winner = horse2Data.name;
     console.log("Horse 2 wins!");
     $('#race-results').text("Horse 2 wins!");
   } else {
@@ -191,7 +192,7 @@ console.log("Clearstorage Button clicked!");
 $("#CreateFighters").on("click", function(event) {
   let horse1Promise = fetchRandomPerson()
     .then(name => {
-      return fetchRandomHorse(".Horse-1", name, horse1Data);
+      return fetchRandomHorse("#Horse-1", name, horse1Data);
     })
     .then(() => {
       console.log('Horse 1 data:', horse1Data);
@@ -202,7 +203,7 @@ $("#CreateFighters").on("click", function(event) {
     
   let horse2Promise = fetchRandomPerson()
     .then(name => {
-      return fetchRandomHorse(".Horse-2", name, horse2Data);
+      return fetchRandomHorse("#Horse-2", name, horse2Data);
     })
     .then(() => {
       console.log('Horse 2 data:', horse2Data);
