@@ -1,5 +1,6 @@
 let horse1Data = {};
 let horse2Data = {};
+let winners =[];
 
 async function fetchRandomHorse(targetClass, horseName, horseData) {
     const url = 'https://horse-racing-usa.p.rapidapi.com/results?date=2021-03-18';
@@ -101,23 +102,26 @@ function distanceConversion(distanceString) {
 
 // determines which horse won the race
 
-function horseBattle () {
-  var raceValueHorse1 = (Math.abs(horse1Data.age - 3.5)) + (Math.abs(horse1Data.convertedDistance - 1.25));
-
-  var raceValueHorse2 = (Math.abs(horse2Data.age - 3.5)) + (Math.abs(horse2Data.convertedDistance - 1.25));
+function horseBattle() {
+  var raceValueHorse1 = Math.abs(horse1Data.age - 3.5) + Math.abs(horse1Data.convertedDistance - 1.25);
+  var raceValueHorse2 = Math.abs(horse2Data.age - 3.5) + Math.abs(horse2Data.convertedDistance - 1.25);
 
   if (raceValueHorse1 < raceValueHorse2) {
+    var winner = "Horse 1";
     console.log("Horse 1 wins!");
     $('#race-results').text("Horse 1 wins!");
   } else if (raceValueHorse2 < raceValueHorse1) {
+    var winner = "Horse 2";
     console.log("Horse 2 wins!");
     $('#race-results').text("Horse 2 wins!");
   } else {
+    var winner = "It's a tie!";
     console.log("It's a tie!");
     $('#race-results').text("It's a tie!");
   }
 
-};
+  localStorage.setItem("winner", winner);
+}
 
 
 async function fetchRandomPerson() {
@@ -243,6 +247,14 @@ $("#FightersBattle").on("click", function(event){
   }, 2500)
 });
 
-$("#previousfights").on("click", function(event){
-console.log("Previousfight button clicked!")
+
+$("#previousfights").on("click", function(event) {
+  var previousWinner = localStorage.getItem("winner");
+  $("#previous-fighters").text("Previous Winner: " + previousWinner);
+  
+  console.log("Previousfight button clicked!");
+  for (var i = 0; i < winners.length; i++) {
+    var winner = winners[i];
+    localStorage.setItem("winner" + i, winner);
+  }
 });
