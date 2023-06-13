@@ -1,5 +1,6 @@
 let horse1Data = {};
 let horse2Data = {};
+let winners =[];
 
 async function fetchRandomHorse(targetClass, horseName, horseData) {
     const url = 'https://horse-racing-usa.p.rapidapi.com/results?date=2021-03-18';
@@ -101,23 +102,26 @@ function distanceConversion(distanceString) {
 
 // determines which horse won the race
 
-function horseBattle () {
-  var raceValueHorse1 = (Math.abs(horse1Data.age - 3.5)) + (Math.abs(horse1Data.convertedDistance - 1.25));
-
-  var raceValueHorse2 = (Math.abs(horse2Data.age - 3.5)) + (Math.abs(horse2Data.convertedDistance - 1.25));
+function horseBattle() {
+  var raceValueHorse1 = Math.abs(horse1Data.age - 3.5) + Math.abs(horse1Data.convertedDistance - 1.25);
+  var raceValueHorse2 = Math.abs(horse2Data.age - 3.5) + Math.abs(horse2Data.convertedDistance - 1.25);
 
   if (raceValueHorse1 < raceValueHorse2) {
+    var winner = "Horse 1";
     console.log("Horse 1 wins!");
     $('#race-results').text("Horse 1 wins!");
   } else if (raceValueHorse2 < raceValueHorse1) {
+    var winner = "Horse 2";
     console.log("Horse 2 wins!");
     $('#race-results').text("Horse 2 wins!");
   } else {
+    var winner = "It's a tie!";
     console.log("It's a tie!");
     $('#race-results').text("It's a tie!");
   }
 
-};
+  localStorage.setItem("winner", winner);
+}
 
 
 async function fetchRandomPerson() {
@@ -145,42 +149,6 @@ async function fetchRandomPerson() {
 //     console.error('Error:', error);
 //   });
 
-async function compareHorseResults() {
-  
-  var horse1 = await fetchRandomHorse('.GenerateStats1', 'Horse 1');
-  var horse2 = await fetchRandomHorse('.GenerateStats2', 'Horse 2');
-
-  
-  var age1 = parseInt(horse1.age.slice(0, 2));
-  var age2 = parseInt(horse2.age.slice(0, 2));
-
-  
-  if (age1 === age2) {
-    console.log("It's a tie!");
-  } else if (age1 < age2) {
-    console.log("Horse 1 wins!");
-  } else {
-    console.log("Horse 2 wins!");
-  }
-}
-
-var div1 = $('.GenerateStats1');
-var div2 = $('.GenerateStats2');
-
-if (div1.length > 0 && div2.length > 0) {
-  var value1 = div1.val();
-  var value2 = div2.val();
-
-  if (value1 === value2) {
-    console.log("It's a tie!");
-  } else if (value1 < value2) {
-    console.log("GenerateStats1 wins!");
-  } else {
-    console.log("GenerateStats2 wins!");
-  }
-} else {
-  console.log("One or both of the div elements were not found.");
-}
 
 function attachImages () {
   var image1container = $('#image-1');
@@ -279,9 +247,14 @@ $("#FightersBattle").on("click", function(event){
   }, 2500)
 });
 
-$("#previousfights").on("click", function(event){
-console.log("Previousfight button clicked!")
+
+$("#previousfights").on("click", function(event) {
+  var previousWinner = localStorage.getItem("winner");
+  $("#previous-fighters").text("Previous Winner: " + previousWinner);
+  
+  console.log("Previousfight button clicked!");
+  for (var i = 0; i < winners.length; i++) {
+    var winner = winners[i];
+    localStorage.setItem("winner" + i, winner);
+  }
 });
-
-
-
