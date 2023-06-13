@@ -64,6 +64,42 @@ async function fetchRandomPerson() {
 //     console.error('Error:', error);
 //   });
 
+async function compareHorseResults() {
+  
+  var horse1 = await fetchRandomHorse('.GenerateStats1', 'Horse 1');
+  var horse2 = await fetchRandomHorse('.GenerateStats2', 'Horse 2');
+
+  
+  var age1 = parseInt(horse1.age.slice(0, 2));
+  var age2 = parseInt(horse2.age.slice(0, 2));
+
+  
+  if (age1 === age2) {
+    console.log("It's a tie!");
+  } else if (age1 < age2) {
+    console.log("Horse 1 wins!");
+  } else {
+    console.log("Horse 2 wins!");
+  }
+}
+
+var div1 = $('.GenerateStats1');
+var div2 = $('.GenerateStats2');
+
+if (div1.length > 0 && div2.length > 0) {
+  var value1 = div1.val();
+  var value2 = div2.val();
+
+  if (value1 === value2) {
+    console.log("It's a tie!");
+  } else if (value1 < value2) {
+    console.log("GenerateStats1 wins!");
+  } else {
+    console.log("GenerateStats2 wins!");
+  }
+} else {
+  console.log("One or both of the div elements were not found.");
+}
 
 function attachImages () {
   var image1container = $('#image-1');
@@ -129,3 +165,6 @@ $("#FightersBattle").on("click", function(event){
 $("#previousfights").on("click", function(event){
 console.log("Previousfight button clicked!")
 });
+
+
+
