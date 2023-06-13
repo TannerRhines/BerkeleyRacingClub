@@ -151,25 +151,52 @@ async function fetchRandomPerson() {
 //   });
 
 
-function attachImages () {
+function attachImages() {
+  var imagePaths = [
+    './assets/images/horse2.png',
+    './assets/images/horse3.png',
+    './assets/images/horse6.png',
+    './assets/images/horse7.png',
+    './assets/images/horse8.png',
+    './assets/images/horse9.png',
+    './assets/images/horse10.png',
+    './assets/images/horse11.png',
+  ];
+
+  // Randomly select two unique indices
+  var randomIndex1 = getRandomIndex(imagePaths.length);
+  var randomIndex2 = getRandomIndex(imagePaths.length, [randomIndex1]);
+
+  // Get references to the image containers
   var image1container = $('#image-1');
   var image2container = $('#image-2');
 
+  // Create image elements and set their sources
   var image1 = $('<img>');
   var image2 = $('<img>');
+  image1.attr('src', imagePaths[randomIndex1]);
+  image2.attr('src', imagePaths[randomIndex2]);
 
-  image1.attr('src', './assets/images/horse2.png');
-  image2.attr('src', './assets/images/horse7.png' );
-
+  // Append images to their respective containers
   image1container.append(image1);
   image2container.append(image2);
 
+  // Add CSS class to apply styling
   image1.addClass('grow');
   image2.addClass('grow');
 
-  // I'm using the below method to flip image 2 horizontally. If we can upload ~10 images of the horses all facing the same way then when we flip image 2 it will look like they're facing off head to head
-
+  // Flip image 2 horizontally
   image2container[0].style.transform = 'scaleX(-1)';
+}
+
+// Helper function to get a random index from the given length,
+// excluding any indices in the exclude array (optional)
+function getRandomIndex(length, exclude = []) {
+  var index;
+  do {
+    index = Math.floor(Math.random() * length);
+  } while (exclude.includes(index));
+  return index;
 }
 
 attachImages();
