@@ -50,7 +50,19 @@ body {
     color:rgb(0, 0, 0);
     font-size: 18px;
   }
-  
+  .background-image {
+    position: fixed;
+    top: 27%;
+    left: 0;
+    width: 25%; /* 3 out of 12 spaces = 25% width */
+    height: 100%;
+    z-index: 0; /* Ensures the background image stays behind other elements */
+}
+#fakeAd1 {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 
   
   @keyframes bump1 {
