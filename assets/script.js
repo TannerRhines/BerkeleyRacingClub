@@ -183,21 +183,6 @@ function attachImages () {
     './assets/images/horse21.png'
   ];
   
-  // Randomly select an index
-  var randomIndex1 = getRandomIndex(imagePaths.length);
-  var randomIndex2 = getRandomIndex(imagePaths.length,[randomIndex1]);
-
-function attachImages() {
-  var imagePaths = [
-    './assets/images/horse2.png',
-    './assets/images/horse3.png',
-    './assets/images/horse6.png',
-    './assets/images/horse7.png',
-    './assets/images/horse8.png',
-    './assets/images/horse9.png',
-    './assets/images/horse10.png',
-    './assets/images/horse11.png',
-  ];
 
   // Randomly select two unique indices
   var randomIndex1 = getRandomIndex(imagePaths.length);
