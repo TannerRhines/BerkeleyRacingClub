@@ -222,7 +222,7 @@ function getRandomIndex(length, exclude = []) {
   return index;
 }
 
-attachImages();
+
 
 
 // Now need a function that will return the winner. Logic as follows:
@@ -241,6 +241,15 @@ $("#winners").empty();
 // Create! button calls the fetchRandomPerson and fetchRandomHorse APIs, stores their race stats to horse1data and horse2data, then horseBattl(); uses a promise to wait for the APIs to finish pulling in the data, then determines which horse wins before Battle! button is clicked
 
 $("#CreateFighters").on("click", function(event) {
+  var image1 = $('#image-1 img');
+  var image2 = $('#image-2 img');
+  image1.attr('src', '');
+  image2.attr('src', '');
+  
+  attachImages();
+  
+ 
+  
   let horse1Promise = fetchRandomPerson()
     .then(name => {
       return fetchRandomHorse("#Horse-1", name, horse1Data);
@@ -253,6 +262,8 @@ $("#CreateFighters").on("click", function(event) {
     })
     .catch(error => {
       console.error('Error:', error);
+    
+    
     });
     
   let horse2Promise = fetchRandomPerson()
