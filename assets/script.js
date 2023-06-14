@@ -58,7 +58,6 @@ try {
   <h3>
     <div>
       <div>
-        <div>Name: ${horseName}</div>
         <div id='age-result'>Age: ${age % 1 !== 0 ? age.toFixed(1) : Math.floor(age)}yo</div>
         <div>Home Course: ${course}</div>
         <div id='distance-result'>Event Length: ${convertedDistance} miles</div>
@@ -131,11 +130,11 @@ function horseBattle() {
   if (raceValueHorse1 < raceValueHorse2) {
     var winner = horse1Data.name;
     console.log("Horse 1 wins!");
-    $('#race-results').text("Horse 1 wins!");
+    $('#race-results').text(horse1Data.name + " wins!");
   } else if (raceValueHorse2 < raceValueHorse1) {
     var winner = horse2Data.name;
     console.log("Horse 2 wins!");
-    $('#race-results').text("Horse 2 wins!");
+    $('#race-results').text(horse2Data.name + " wins!");
   } else {
     var winner = "It's a tie!";
     console.log("It's a tie!");
@@ -247,6 +246,9 @@ $("#CreateFighters").on("click", function(event) {
       return fetchRandomHorse("#Horse-1", name, horse1Data);
     })
     .then(() => {
+      $('#Horse-1-name').text(horse1Data.name);
+    })
+    .then(() => {
       console.log('Horse 1 data:', horse1Data);
     })
     .catch(error => {
@@ -256,6 +258,9 @@ $("#CreateFighters").on("click", function(event) {
   let horse2Promise = fetchRandomPerson()
     .then(name => {
       return fetchRandomHorse("#Horse-2", name, horse2Data);
+    })
+    .then(() => {
+      $('#Horse-2-name').text(horse2Data.name);
     })
     .then(() => {
       console.log('Horse 2 data:', horse2Data);
@@ -279,6 +284,8 @@ $("#CreateFighters").on("click", function(event) {
 $("#ResetBattle").on("click", function(event){
     $(".Horse-1").html('');
     $(".Horse-2").html('');
+    $('#Horse-1-name').text('');
+    $('#Horse-2-name').text('');
     $("#race-results").html('');
 console.log("ResetBattle Button clicked!");
 });
