@@ -118,11 +118,11 @@ function horseBattle() {
   if (raceValueHorse1 < raceValueHorse2) {
     var winner = horse1Data.name;
     console.log("Horse 1 wins!");
-    $('#race-results').text("Horse 1 wins!");
+    $('#race-results').text(horse1Data.name + " wins!");
   } else if (raceValueHorse2 < raceValueHorse1) {
     var winner = horse2Data.name;
     console.log("Horse 2 wins!");
-    $('#race-results').text("Horse 2 wins!");
+    $('#race-results').text(horse2Data.name + " wins!");
   } else {
     var winner = "It's a tie!";
     console.log("It's a tie!");
