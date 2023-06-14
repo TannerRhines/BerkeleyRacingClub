@@ -37,6 +37,19 @@ body {
     background-color: rgb(156, 197, 73);
   }
   
+  footer {
+    background-color: rgb(222, 184, 135);
+    padding: 20px;
+    text-align: center;
+  }
+  
+  footer p {
+    color: white;
+    font-size: 18px;
+  }
+  
+
+  
   @keyframes bump1 {
     0%, 50%, 100% {
       transform: scale(1) rotate(0deg) translateX(0px);
