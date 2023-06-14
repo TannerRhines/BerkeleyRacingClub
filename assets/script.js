@@ -4,10 +4,23 @@ let horse2Data = {};
 //conditional statement to check if winners array has anything if it does, adds it to the array if not, makes empty array
 
 let winners;
-if (localStorage.getItem("winners")){
-  winners= JSON.parse(localStorage.getItem("winners"))
-}else {
+
+if (localStorage.getItem("winners")) {
+  winners = JSON.parse(localStorage.getItem("winners"));
+} else {
   winners = [];
+}
+
+// Display the winners on the page
+if (winners.length > 0) {
+  const winnersList = document.getElementById("winners");
+  winnersList.innerHTML = ""; // Clear previous content
+
+  for (let i = 0; i < winners.length; i++) {
+    const winnerItem = document.createElement("li");
+    winnerItem.textContent = winners[i];
+    winnersList.appendChild(winnerItem);
+  }
 }
 
 async function fetchRandomHorse(targetClass, horseName, horseData) {
@@ -162,12 +175,15 @@ function attachImages() {
   var imagePaths = [
     './assets/images/horse2.png',
     './assets/images/horse3.png',
+    './assets/images/horse5.png',
     './assets/images/horse6.png',
     './assets/images/horse7.png',
     './assets/images/horse8.png',
     './assets/images/horse9.png',
     './assets/images/horse10.png',
     './assets/images/horse11.png',
+    './assets/images/horse12.png',
+    './assets/images/horse13.png',
   ];
 
   // Randomly select two unique indices
@@ -219,6 +235,7 @@ attachImages();
 $("#clearstorage").on("click", function(event) {
 localStorage.clear();
 console.log("Clearstorage Button clicked!");
+$("#winners").empty();
 });
 
 // Create! button calls the fetchRandomPerson and fetchRandomHorse APIs, stores their race stats to horse1data and horse2data, then horseBattl(); uses a promise to wait for the APIs to finish pulling in the data, then determines which horse wins before Battle! button is clicked
@@ -292,12 +309,15 @@ $("#FightersBattle").on("click", function(event){
 
 
 $("#previousfights").on("click", function(event) {
-  var previousWinner = localStorage.getItem("winner");
-  $("#previous-fighters").text("Previous Winner: " + previousWinner);
+  if (winners.length > 0) {
+    const winnersList = document.getElementById("winners");
+    winnersList.innerHTML = ""; // Clear previous content
   
-  console.log("Previousfight button clicked!");
-  for (var i = 0; i < winners.length; i++) {
-    var winner = winners[i];
-    localStorage.getItem("winner" + i, winner);
+    for (let i = 0; i < winners.length; i++) {
+      const winnerItem = document.createElement("li");
+      winnerItem.textContent = winners[i];
+      winnersList.appendChild(winnerItem);
+    }
   }
+  
 });
