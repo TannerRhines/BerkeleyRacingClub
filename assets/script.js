@@ -176,12 +176,15 @@ function attachImages() {
   var imagePaths = [
     './assets/images/horse2.png',
     './assets/images/horse3.png',
+    './assets/images/horse5.png',
     './assets/images/horse6.png',
     './assets/images/horse7.png',
     './assets/images/horse8.png',
     './assets/images/horse9.png',
     './assets/images/horse10.png',
     './assets/images/horse11.png',
+    './assets/images/horse12.png',
+    './assets/images/horse13.png',
   ];
 
   // Randomly select two unique indices
