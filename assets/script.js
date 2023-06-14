@@ -1,6 +1,14 @@
 let horse1Data = {};
 let horse2Data = {};
-let winners =[];
+
+//conditional statement to check if winners array has anything if it does, adds it to the array if not, makes empty array
+
+let winners;
+if (localStorage.getItem("winners")){
+  winners= JSON.parse(localStorage.getItem("winners"))
+}else {
+  winners = [];
+}
 
 async function fetchRandomHorse(targetClass, horseName, horseData) {
     const url = 'https://horse-racing-usa.p.rapidapi.com/results?date=2021-03-18';
@@ -120,8 +128,8 @@ function horseBattle() {
     console.log("It's a tie!");
     $('#race-results').text("It's a tie!");
   }
-
-  localStorage.setItem("winner", winner);
+  winners.push(winner);
+  localStorage.setItem("winners", JSON.stringify(winners));
 }
 
 
@@ -179,6 +187,23 @@ function attachImages () {
   var randomIndex1 = getRandomIndex(imagePaths.length);
   var randomIndex2 = getRandomIndex(imagePaths.length,[randomIndex1]);
 
+function attachImages() {
+  var imagePaths = [
+    './assets/images/horse2.png',
+    './assets/images/horse3.png',
+    './assets/images/horse6.png',
+    './assets/images/horse7.png',
+    './assets/images/horse8.png',
+    './assets/images/horse9.png',
+    './assets/images/horse10.png',
+    './assets/images/horse11.png',
+  ];
+
+  // Randomly select two unique indices
+  var randomIndex1 = getRandomIndex(imagePaths.length);
+  var randomIndex2 = getRandomIndex(imagePaths.length, [randomIndex1]);
+
+  // Get references to the image containers
   var image1container = $('#image-1');
   var image2container = $('#image-2');
   
@@ -192,13 +217,23 @@ function attachImages () {
   image2container.append(image2);
   
 
+  // Add CSS class to apply styling
   image1.addClass('grow');
   image2.addClass('grow');
 
-  // I'm using the below method to flip image 2 horizontally. If we can upload ~10 images of the horses all facing the same way then when we flip image 2 it will look like they're facing off head to head
-
+  // Flip image 2 horizontally
   image2container[0].style.transform = 'scaleX(-1)';
 
+}
+
+// Helper function to get a random index from the given length,
+// excluding any indices in the exclude array (optional)
+function getRandomIndex(length, exclude = []) {
+  var index;
+  do {
+    index = Math.floor(Math.random() * length);
+  } while (exclude.includes(index));
+  return index;
 }
 
 attachImages();
@@ -285,6 +320,6 @@ $("#previousfights").on("click", function(event) {
   console.log("Previousfight button clicked!");
   for (var i = 0; i < winners.length; i++) {
     var winner = winners[i];
-    localStorage.setItem("winner" + i, winner);
+    localStorage.getItem("winner" + i, winner);
   }
 });
