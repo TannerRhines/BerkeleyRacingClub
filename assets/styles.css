@@ -36,7 +36,7 @@ body {
   .card {
     background-color: rgb(156, 197, 73);
   }
-  
+
   footer {
     background-color: rgb(222, 184, 135);
     padding: 20px;
@@ -44,7 +44,7 @@ body {
   }
   
   footer p {
-    color: white;
+    color:rgb(187, 150, 55);
     font-size: 18px;
   }
   
