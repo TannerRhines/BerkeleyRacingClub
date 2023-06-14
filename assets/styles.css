@@ -33,6 +33,9 @@ body {
     transform: scale(1.5) rotate(-25deg);
     animation: bump2 1s ease-out 2;
   }
+  .card {
+    background-color: rgb(156, 197, 73);
+  }
   
   @keyframes bump1 {
     0%, 50%, 100% {
