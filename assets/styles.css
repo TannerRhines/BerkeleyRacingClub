@@ -1,3 +1,6 @@
+HTML {
+  background-color: rgb(201, 236, 130)
+}
 header{
     background-color: rgb(82, 82, 82);
     color: rgb(187, 150, 55);
@@ -44,7 +47,7 @@ body {
   }
   
   footer p {
-    color:rgb(187, 150, 55);
+    color:rgb(0, 0, 0);
     font-size: 18px;
   }
   
