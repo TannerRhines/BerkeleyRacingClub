@@ -63,6 +63,19 @@ body {
   height: auto;
   display: block;
 }
+.background-image2 {
+  position: fixed;
+  top: 27%;
+  right: 0;
+  width: 25%; /* 3 out of 12 spaces = 25% width */
+  height: 100%;
+  z-index: 0; /* Ensures the background image stays behind other elements */
+}
+#fakeAd2 {
+width: 100%;
+height: auto;
+display: block;
+}
 
   
   @keyframes bump1 {
