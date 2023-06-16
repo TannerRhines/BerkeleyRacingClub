@@ -15,6 +15,9 @@ INSTALLATION
 
 No installation, simply click the link provided
 
+https://tannerrhines.github.io/BerkeleyRacingClub/
+
+
 HOW TO PLAY
 -------------
 
