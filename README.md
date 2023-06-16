@@ -38,3 +38,9 @@ Zach Antunes,
 Jared Buttrey,
 Andres Asencios,
 Tanner Rhines
+
+
+
+PREVIEW
+-------
+![Screenshot 2023-06-15 at 6 09 22 PM](https://github.com/TannerRhines/BerkeleyRacingClub/assets/129781576/8bd769ef-6b54-45df-a732-79ed4597cfb4)
