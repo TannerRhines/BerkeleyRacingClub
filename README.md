@@ -29,9 +29,9 @@ Hit "Reset" to play again!
 CREDITS
 ________
 
-Jacob "Jazz" Dominguez
-Jean-Luc Votichenko
-Zach Antunes
-Jared Buttrey
-Andres Asencios
+Jacob "Jazz" Dominguez,
+Jean-Luc Votichenko,
+Zach Antunes,
+Jared Buttrey,
+Andres Asencios,
 Tanner Rhines
