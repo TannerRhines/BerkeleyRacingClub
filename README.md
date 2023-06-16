@@ -10,12 +10,12 @@ REQUIREMENTS
 -------------
 a web browser, preferably FireFox or Google Chrome
 
-##INSTALLATION
+INSTALLATION
 --------------
 
 No installation, simply click the link provided
 
-##HOW TO PLAY
+HOW TO PLAY
 -------------
 
 click the "Create!" button to generate your horses. 
