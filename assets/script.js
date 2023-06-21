@@ -128,19 +128,19 @@ function horseBattle() {
   var raceValueHorse2 = Math.abs(horse2Data.age - 3.5) + Math.abs(horse2Data.convertedDistance - 1.25);
 
   if (raceValueHorse1 < raceValueHorse2) {
-    var winner = horse1Data.name;
+    var result = `${horse1Data.name} beat ${horse2Data.name}`;
     console.log("Horse 1 wins!");
     $('#race-results').text(horse1Data.name + " wins!");
   } else if (raceValueHorse2 < raceValueHorse1) {
-    var winner = horse2Data.name;
+    var result = `${horse2Data.name} beat ${horse1Data.name}`;
     console.log("Horse 2 wins!");
     $('#race-results').text(horse2Data.name + " wins!");
   } else {
-    var winner = "It's a tie!";
+    var result = `${horse1Data.name} tied ${horse2Data.name}`;
     console.log("It's a tie!");
     $('#race-results').text("It's a tie!");
   }
-  winners.push(winner);
+  winners.push(result);
   localStorage.setItem("winners", JSON.stringify(winners));
 }
 
